@@ -1,18 +1,21 @@
 .main-content {
     width: 900px;
-    margin: auto;
+    margin: 50px auto;
     display: flex;
-    margin-top: 100px;
 }
 
 .left-panel {
     width: 300px;
 }
 
+img {
+    object-fit: cover;
+    border-radius: 4px;
+}
+
 .img-preview {
     height: 50px;
     display: flex;
-    width: 100%;
     align-items: center;
     font-size: 1.3rem;
     padding-left: 10px;
@@ -38,11 +41,6 @@
 .full-image img {
     width: 500px;
     height: 700px;
-}
-
-img {
-    object-fit: cover;
-    border-radius: 4px;
 }
 
 .full-image input {

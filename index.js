@@ -6,8 +6,28 @@ const fullImageTitle = document.querySelector(".full-image input");
 let selected = 0;
 
 const truncateString = (str) => {
-  	if (str.length <= 23) return str;
- 	return str.substr(0, 10) + "..." + str.substr(str.length - 10);
+	if (str.length <= 23) return str;
+	return str.substr(0, 10) + "..." + str.substr(str.length - 10);
+};
+
+const showNewImage = () => {
+	fullImage.setAttribute("src", images[selected].previewImage);
+	fullImageTitle.value = images[selected].title;
+};
+
+const changeSelection = (index) => {
+	const prevSelected = document.querySelector(`.preview-${selected}`);
+	const newSelected = document.querySelector(`.preview-${index}`);
+	prevSelected.classList.remove("selected");
+	newSelected.classList.add("selected");
+	selected = index;
+	showNewImage();
+};
+
+const changeTitle = (newTitle) => {
+	images[selected].title = newTitle;
+	const previewTitle = document.querySelector(`.preview-${selected} div`);
+	previewTitle.innerHTML = truncateString(newTitle);
 };
 
 const createImgPreview = (image, index) => {
@@ -19,34 +39,6 @@ const createImgPreview = (image, index) => {
     `;
 	imgPreviewDiv.addEventListener("click", () => changeSelection(index));
 	return imgPreviewDiv;
-};
-
-const changeFullImage = () => {
-  	fullImage.setAttribute("src", images[selected].previewImage);
-};
-
-const changeFullImageTitle = () => {
-  	fullImageTitle.value = images[selected].title;
-};
-
-const changeSelectedImage = () => {
-  	changeFullImage();
-  	changeFullImageTitle();
-};
-
-const changeTitle = (newTitle) => {
-  	images[selected].title = newTitle;
-  	const previewTitle = document.querySelector(`.preview-${selected} div`);
-  	previewTitle.innerHTML = truncateString(newTitle);
-};
-
-const changeSelection = (index) => {
-  	const prevSelected = document.querySelector(`.preview-${selected}`);
-  	const newSelected = document.querySelector(`.preview-${index}`);
-  	prevSelected.classList.remove("selected");
-  	newSelected.classList.add("selected");
-  	selected = index;
-  	changeSelectedImage();
 };
 
 document.addEventListener("keydown", (event) => {
