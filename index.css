@@ -1,5 +1,5 @@
 .main-content {
-    width: 800px;
+    width: 900px;
     margin: auto;
     display: flex;
     margin-top: 100px;
@@ -7,7 +7,6 @@
 
 .left-panel {
     width: 300px;
-    padding-right: 30px;
 }
 
 .img-preview {
@@ -31,8 +30,13 @@
     margin-right: 10px;
 }
 
+.full-image {
+    width: 550px;
+    padding-left: 30px;
+}
+
 .full-image img {
-    width: 100%;
+    width: 500px;
     height: 700px;
 }
 
@@ -42,7 +46,7 @@ img {
 }
 
 .full-image input {
-    width: 100%;
+    width: 500px;
     border-style: hidden;
     font-size: 1.1rem;
     color: #666;
